@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,400;7..72,600&family=STIX+Two+Text:wght@400;600&display=swap" rel="stylesheet">
 <style>
 /* Same visual system as Therefore: one narrow column, levels list on home, stepwise exercises. */
-:root{
+:root{--g1:#1F7A4A;--g2:#2E8B57;--g3:#3BAFA0;--mast-shadow:rgba(31,122,74,.6);--acc2:#3BA776;--acc2-soft:#E2F4EA;
   --paper:#F5FAF6; --surface:#FFFFFF; --ink:#14301F; --muted:#4F6B5A; --line:#D5E8DA;
   --accent:#1F7A4A; --accent-ink:#FFFFFF;
   --good:#1D7550; --good-tint:#E3F3EB; --bad:#B42318; --bad-bg:#FBE9E7;
@@ -69,7 +69,7 @@ h2{font-size:1.55rem}
 h3{font-size:1.1rem}
 p{margin:.4em 0}
 .muted{color:var(--muted)}
-.f{font-family:var(--logic);white-space:nowrap}
+.f{font-family:var(--logic);white-space:nowrap;font-size:1.06em}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,select:focus-visible,a:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:2px}
 .back{background:none;border:0;padding:6px 0;color:var(--accent);font-weight:700;margin-bottom:10px}
@@ -161,7 +161,6 @@ select{font:inherit;padding:8px 10px;border-radius:8px;border:1.5px solid var(--
 .level.part-1{--pc:var(--p1);--pcs:var(--p1-soft)}
 .level.part-2{--pc:var(--p2);--pcs:var(--p2-soft)}
 .level.part-3{--pc:var(--p3);--pcs:var(--p3-soft)}
-.level.part-6{--pc:var(--p1);--pcs:var(--p1-soft)}
 .level.part-4{--pc:var(--p4);--pcs:var(--p4-soft)}
 .level.part-5{--pc:var(--p2);--pcs:var(--p2-soft)}
 .levels .topic{border-color:var(--line);display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;padding:12px 14px 12px 12px;transition:border-color .15s, transform .15s}
@@ -227,14 +226,14 @@ input[type=text]:focus-visible{outline:3px solid var(--accent);outline-offset:2p
 
 
 /* Cute home header */
-.mast{background:linear-gradient(135deg,#1F7A4A 0%,#2E8B57 55%,#3BAFA0 100%);box-shadow:0 20px 44px -24px rgba(31,122,74,.6)}
+.mast{background:linear-gradient(135deg,var(--g1) 0%,var(--g2) 55%,var(--g3) 100%);box-shadow:0 20px 44px -24px var(--mast-shadow)}
 .mast .syms{color:rgba(255,255,255,.14)}
 .mast h1 .f{opacity:.7}
 .mast .candy-cta{background:var(--surface);color:var(--ink);box-shadow:0 12px 26px -14px rgba(20,60,40,.55)}
 .mast .candy-cta::before{background:repeating-linear-gradient(-45deg,var(--candy) 0 8px,transparent 8px 16px);opacity:.85}
 .mast .candy-cta small{color:var(--muted);opacity:1}
 .mast .candy-cta b{color:var(--candy)}
-.mast .candy-cta .go-light{background:linear-gradient(90deg,var(--candy),#3BA776);color:#fff}
+.mast .candy-cta .go-light{background:linear-gradient(90deg,var(--candy),var(--acc2));color:#fff}
 .levels,.mast{position:relative;z-index:1}
 
 /* Progress: what's been done */
@@ -266,18 +265,59 @@ input[type=text]:focus-visible{outline:3px solid var(--accent);outline-offset:2p
   @keyframes wiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) scale(1.04)}}
 }
 .lock{border:2px solid var(--lock-line);border-radius:28px;box-shadow:0 22px 60px -26px var(--lock-glow),0 0 0 8px var(--lock-ring)}
-.lock .tile{background:linear-gradient(135deg,var(--candy),#3BA776);color:#fff;border-radius:24px;box-shadow:0 12px 26px -10px var(--lock-glow);position:relative}
+.lock .tile{background:linear-gradient(135deg,var(--candy),var(--acc2));color:#fff;border-radius:24px;box-shadow:0 12px 26px -10px var(--lock-glow);position:relative}
 .lock .tile::after{content:'✦';position:absolute;top:-8px;right:-10px;font-size:20px;color:#FFC93C;text-shadow:0 1px 0 rgba(0,0,0,.08)}
-.lock h1{background:linear-gradient(90deg,var(--candy),#3BA776 55%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lock h1{background:linear-gradient(90deg,var(--candy),var(--acc2) 55%,var(--p1));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lock h1 .wave{-webkit-text-fill-color:initial;color:initial;margin-left:6px;font-size:.8em}
 .lock input[type=text]{border:2px solid var(--lock-line);border-radius:16px;background:var(--lock-field)}
 .lock input[type=text]:focus{border-color:var(--candy);outline:3px solid var(--lock-ring);outline-offset:0}
-.lock .btn.big{border-radius:16px;background:linear-gradient(90deg,var(--candy),#3BA776);color:#fff;box-shadow:0 10px 20px -10px var(--lock-glow)}
+.lock .btn.big{border-radius:16px;background:linear-gradient(90deg,var(--candy),var(--acc2));color:#fff;box-shadow:0 10px 20px -10px var(--lock-glow)}
 .lock .chip{font-size:.9rem;padding:6px 14px;box-shadow:inset 0 0 0 1.5px var(--lock-line)}
 .lock .hello{margin:0;font-weight:700;color:var(--candy);letter-spacing:.02em}
-.op{font-size:1.22em;line-height:1;vertical-align:-.04em}
+.op{font-size:1.42em;line-height:1;vertical-align:-.08em;font-weight:600;padding:0 .04em}
 .why.means{color:var(--ink);opacity:.85}
+.means-list{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:6px}
+.means-list li{background:var(--soft);border-radius:10px;padding:8px 10px;line-height:1.45}
+.means-list li.ok{background:var(--good-tint)}
+.means-h{margin-top:14px}
+.why.means{color:var(--ink);opacity:.88}
+.why.wrongwhy{color:var(--bad);opacity:.95}
+.ttwrap{overflow-x:auto;margin:6px 0 4px}
+table.tt{border-collapse:collapse;font-family:var(--logic);font-size:1.15rem;margin:0 auto}
+table.tt th,table.tt td{padding:4px 8px;text-align:center;border-bottom:1px solid var(--line)}
+table.tt th.fc{font-weight:600;white-space:nowrap}
+table.tt th small{display:block;font-family:var(--sans);font-size:.7rem;color:var(--muted);font-weight:400}
+table.tt .sep{border-left:2px solid var(--ink);padding:0}
+table.tt .cell{min-width:44px;min-height:38px;border-radius:9px;border:1.5px solid var(--line);background:var(--surface);font-family:var(--logic);font-size:1.05rem;font-weight:700;cursor:pointer;color:var(--ink)}
+table.tt .cell.right{background:var(--good-tint);border-color:var(--good)}
+table.tt .cell.wrong{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+table.proof{border-collapse:collapse;font-size:1.12rem;margin:8px 0 12px}
+table.proof td{padding:2px 6px;vertical-align:middle}
+table.proof .ln{color:var(--muted);text-align:right;font-family:var(--sans);font-size:.9rem}
+table.proof .bars i{display:inline-block;width:12px;height:1.6em;border-left:2px solid var(--ink);vertical-align:middle}
+table.proof .asm{border-bottom:2px solid var(--ink);padding-bottom:1px}
+table.proof .ju{color:var(--muted);font-family:var(--sans);font-size:.92rem;padding-left:14px;white-space:nowrap}
+table.proof .gap{color:var(--bad)}
+.next{display:flex;justify-content:space-between;gap:10px}
+.next .prev{margin-right:auto}
+.next .btn:last-child{margin-left:auto}
+table.proof tr.new .bars i:last-child{height:1.25em;margin-top:.35em;vertical-align:bottom}
 </style>
+<style id="theme">:root{--paper:hsl(150 40% 97%);--surface:#FFFFFF;--ink:hsl(150 45% 13%);--muted:hsl(150 15% 37%);--line:hsl(150 32% 87%);--soft:hsl(150 40% 94%);
+--accent:hsl(150 62% 31%);--accent-ink:#FFFFFF;--mast:hsl(150 50% 25%);--mast-ink:#FFFFFF;--candy:hsl(150 52% 37%);--candy-ink:#FFFFFF;--candy-2:hsl(150 50% 92%);
+--acc2:hsl(164 48% 46%);--acc2-soft:hsl(150 52% 93%);--g1:hsl(150 62% 29%);--g2:hsl(162 52% 39%);--g3:hsl(188 50% 44%);--mast-shadow:hsl(150 60% 30% / .55);
+--p1:hsl(190 70% 28%);--p1-soft:hsl(190 55% 92%);--p2:hsl(110 62% 30%);--p2-soft:hsl(110 55% 92%);--p3:hsl(150 55% 34%);--p3-soft:hsl(150 50% 92%);--p4:hsl(230 45% 31%);--p4-soft:hsl(230 45% 92%);
+--blob1:hsl(150 60% 88%);--blob2:hsl(180 55% 90%);--blob3:hsl(120 55% 90%);--blob4:hsl(210 60% 92%);--lock-line:hsl(150 40% 85%);--lock-ring:hsl(150 50% 50% / .22);--lock-glow:hsl(150 60% 35% / .45);--lock-field:hsl(150 50% 98%);--page-sym:hsl(150 60% 30% / .07);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:hsl(150 35% 9%);--surface:hsl(150 30% 13%);--ink:hsl(150 40% 92%);--muted:hsl(150 18% 68%);--line:hsl(150 25% 23%);--soft:hsl(150 28% 17%);
+--accent:hsl(150 58% 66%);--accent-ink:hsl(150 35% 9%);--mast:hsl(150 45% 24%);--candy:hsl(150 52% 62%);--candy-ink:hsl(150 35% 8%);--candy-2:hsl(150 30% 18%);
+--acc2:hsl(164 48% 58%);--acc2-soft:hsl(150 30% 18%);--g1:hsl(150 50% 25%);--g2:hsl(162 45% 31%);--g3:hsl(188 45% 35%);--mast-shadow:hsl(150 50% 20% / .6);
+--p1:hsl(190 55% 64%);--p1-soft:hsl(190 30% 17%);--p2:hsl(110 55% 64%);--p2-soft:hsl(110 30% 17%);--p3:hsl(150 50% 66%);--p3-soft:hsl(150 30% 17%);--p4:hsl(230 45% 62%);--p4-soft:hsl(230 28% 17%);
+--blob1:hsl(150 60% 50% / .16);--blob2:hsl(180 55% 50% / .14);--blob3:hsl(120 55% 50% / .12);--blob4:hsl(210 60% 50% / .10);--lock-line:hsl(150 25% 26%);--lock-ring:hsl(150 50% 55% / .12);--lock-glow:hsl(150 55% 55% / .45);--lock-field:hsl(150 30% 12%);--page-sym:hsl(150 55% 70% / .07);}}
+:root[data-theme="dark"]{--paper:hsl(150 35% 9%);--surface:hsl(150 30% 13%);--ink:hsl(150 40% 92%);--muted:hsl(150 18% 68%);--line:hsl(150 25% 23%);--soft:hsl(150 28% 17%);
+--accent:hsl(150 58% 66%);--accent-ink:hsl(150 35% 9%);--mast:hsl(150 45% 24%);--candy:hsl(150 52% 62%);--candy-ink:hsl(150 35% 8%);--candy-2:hsl(150 30% 18%);
+--acc2:hsl(164 48% 58%);--acc2-soft:hsl(150 30% 18%);--g1:hsl(150 50% 25%);--g2:hsl(162 45% 31%);--g3:hsl(188 45% 35%);--mast-shadow:hsl(150 50% 20% / .6);
+--p1:hsl(190 55% 64%);--p1-soft:hsl(190 30% 17%);--p2:hsl(110 55% 64%);--p2-soft:hsl(110 30% 17%);--p3:hsl(150 50% 66%);--p3-soft:hsl(150 30% 17%);--p4:hsl(230 45% 62%);--p4-soft:hsl(230 28% 17%);
+--blob1:hsl(150 60% 50% / .16);--blob2:hsl(180 55% 50% / .14);--blob3:hsl(120 55% 50% / .12);--blob4:hsl(210 60% 50% / .10);--lock-line:hsl(150 25% 26%);--lock-ring:hsl(150 50% 55% / .12);--lock-glow:hsl(150 55% 55% / .45);--lock-field:hsl(150 30% 12%);--page-sym:hsl(150 55% 70% / .07);}</style>
 </head>
 <body>
 <style>
@@ -290,13 +330,14 @@ input[type=text]:focus-visible{outline:3px solid var(--accent);outline-offset:2p
 .plan ol{margin:8px 0 0;padding-left:1.2em;color:var(--muted);font-size:.95rem}
 .plan li{margin:2px 0}
 .plan b{color:var(--ink)}
-.level.part-0{--pc:#3BA776;--pcs:#E2F4EA}
+.level.part-0{--pc:var(--acc2);--pcs:var(--acc2-soft)}
 .fcard{margin-top:16px;background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:22px 20px;min-height:200px;display:grid;gap:10px;align-content:start}
 .fcard .deck{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0}
 .fcard h3{font-size:1.6rem;color:var(--accent)}
 .fcard .def{font-size:1.08rem}
 .fcard .ex{font-family:var(--logic);font-size:1.3rem;background:var(--soft);border-radius:12px;padding:10px 14px;overflow-wrap:anywhere}
-.fcard .ex .f{white-space:normal}
+.fcard .ex .f{white-space:normal;display:inline-block;margin-right:.6em}
+.fcard .def br{content:"";display:block;margin-top:.55em}
 .fcard .ex small{display:block;font-family:var(--sans);font-size:.88rem;color:var(--muted)}
 .fcard.hidden-def{border-style:dashed;place-items:center;text-align:center}
 .basket{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px;padding:14px;background:var(--soft);border-radius:16px}
@@ -345,6 +386,43 @@ function tally(ok){
 }
 const sc = id => { const p=progress[id]; return p?`${p.right}/${p.done}`:'0/0'; };
 
+// ===== Sentential logic helpers (truth tables, English readings) =====
+function slParse(src){ const s=String(src).replace(/\s+/g,''); let i=0;
+  function un(){ const c=s[i];
+    if(c==='~'){ i++; return {op:'~',a:un()}; }
+    if(c==='('||c==='['||c==='{'){ i++; const e=bin(); i++; return e; }
+    if(/[A-Z]/.test(c||'')){ i++; let sub=''; while(/[0-9]/.test(s[i]||'')) sub+=s[i++]; return {at:c+sub}; }
+    throw new Error('Cannot read '+src); }
+  function bin(){ const l=un(); const c=s[i]; if(c && '&∨⊃≡'.includes(c)){ i++; return {op:c,a:l,b:un()}; } return l; }
+  const t=bin(); if(i!==s.length) throw new Error('Cannot read '+src); return t; }
+function slEval(t,v){ if(t.at) return !!v[t.at]; const a=slEval(t.a,v);
+  if(t.op==='~') return !a; const b=slEval(t.b,v);
+  return t.op==='&'?a&&b : t.op==='∨'?a||b : t.op==='⊃'?(!a||b) : a===b; }
+function slAtoms(t,out=new Set()){ if(t.at) out.add(t.at); else { slAtoms(t.a,out); if(t.b) slAtoms(t.b,out); } return [...out].sort(); }
+function slEnglishT(t,k){
+  if(t.at) return k[t.at]||t.at;
+  if(t.op==='~'){ const a=t.a;
+    if(a.op==='&') return `not both ${slEnglishT(a.a,k)} and ${slEnglishT(a.b,k)}`;
+    if(a.op==='∨') return `neither ${slEnglishT(a.a,k)} nor ${slEnglishT(a.b,k)}`;
+    return `it is not the case that ${slEnglishT(a,k)}`; }
+  const A=slEnglishT(t.a,k), B=slEnglishT(t.b,k), cx=(t.a.op&&t.a.op!=='~')||(t.b.op&&t.b.op!=='~');
+  if(t.op==='&') return cx?`both ${A}, and ${B}`:`${A} and ${B}`;
+  if(t.op==='∨') return `either ${A} or ${B}`;
+  if(t.op==='⊃') return `if ${A}, then ${B}`;
+  return `${A} if and only if ${B}`; }
+function slEnglish(f,k){ try{ const s=slEnglishT(slParse(f),k); return s[0].toUpperCase()+s.slice(1)+'.'; }catch(e){ return null; } }
+const onlyFormula = o => { const m=/^\{([^}]*)\}$/.exec(o.trim()); return m?m[1]:null; };
+function slStr(t,top=true){ if(t.at) return t.at; if(t.op==='~') return '~ '+slStr(t.a,false); const s=slStr(t.a,false)+' '+t.op+' '+slStr(t.b,false); return top?s:'('+s+')'; }
+const SLNAME={'~':'negation','&':'conjunction','∨':'disjunction','⊃':'conditional','≡':'biconditional'};
+function slWhy(t,v){ const TF=b=>b?'T':'F', val=slEval(t,v);
+  if(t.at) return `${t.at} is ${TF(val)}.`;
+  if(t.op==='~') return `${slStr(t.a)} is ${TF(slEval(t.a,v))}, so its negation is ${TF(val)}.`;
+  const a=slEval(t.a,v), b=slEval(t.b,v);
+  const rule = t.op==='&'?(val?'both parts are T':'a conjunction needs both parts T') : t.op==='∨'?(val?'at least one part is T':'both parts are F') : t.op==='⊃'?(val?(a?'the consequent is T':'the antecedent is F'):'T antecedent with F consequent is the only false case') : (val?'both sides match':'the two sides differ');
+  return `${slStr(t.a)} is ${TF(a)} and ${slStr(t.b)} is ${TF(b)}, so the ${SLNAME[t.op]} is ${TF(val)} (${rule}).`; }
+function proofHTML(p){
+  return `<table class="proof">${p.map(([n,d,s,j,as])=>`<tr class="${as&&d>0?'new':''}"><td class="ln">${n}</td><td class="ps"><span class="bars">${'<i></i>'.repeat(d+1)}</span><span class="${as?'asm':''}">${s?F(s):'<b class="gap">?</b>'}</span></td><td class="ju">${esc(j||'')}</td></tr>`).join('')}</table>`;
+}
 // ===== Symbolization keys =====
 const K = {
   basket:[['UD','things in a fruit basket'],['Ax','x is an apple'],['Px','x is a pear'],['Rx','x is rotten']],
@@ -354,20 +432,20 @@ const K = {
 
 // ===== Definitions (intro flashcards) =====
 const DEFS1=[
-  {t:'Identity predicate', d:'A two-place predicate “=” that always means “is identical to”: one and the same object. It never needs a line in the symbolization key.', x:'{a = b}     {~ a = b}', xs:'a is b.   a is not b.'},
-  {t:'At least two', d:'Two different variables do not promise two different things. Add “x is not y”.', x:'{(∃x)(∃y)[(Ax & Ay) & ~ x = y]}', xs:'There are at least two apples.'},
-  {t:'Exactly one', d:'There is one, and anything of that kind is that very one.', x:'{(∃x)[Ax & (∀y)(Ay ⊃ y = x)]}', xs:'There is exactly one apple.'},
-  {t:'At most one', d:'Any two of them are the same. This is true even if there are none.', x:'{(∀x)(∀y)[(Ax & Ay) ⊃ x = y]}', xs:'There is at most one apple.'},
-  {t:'Exactly two', d:'At least two different ones, and anything of that kind is one of those two.', x:'{(∃x)(∃y)([(Ax & Ay) & ~ x = y] & (∀z)[Az ⊃ (z = x ∨ z = y)])}', xs:'There are exactly two apples.'},
-  {t:'Except', d:'Set one individual apart from all the others.', x:'{~ As & (∀y)(~ y = s ⊃ Ay)}', xs:'Everyone except Sam has read it.'},
-  {t:'The only one', d:'The individual has the property, and anything with the property is that individual.', x:'{Pk & (∀x)(Px ⊃ x = k)}', xs:'Kim is the only pilot.'},
-  {t:'Definite description', d:'“The F” claims that exactly one thing is F. “The F is G” becomes a unique existence claim. If nothing is F, or several things are, the sentence is false (not meaningless).', x:'{(∃x)[(Fx & (∀y)(Fy ⊃ y = x)) & Gx]}', xs:'The winner is happy.'},
-  {t:'Reflexive relation', d:'Everything bears the relation to itself.', x:'{(∀x)Axx}', xs:'x is the same age as y (UD: people).'},
-  {t:'Symmetric relation', d:'If x bears it to y, then y bears it to x.', x:'{(∀x)(∀y)(Axy ⊃ Ayx)}', xs:'x is a sibling of y.'},
-  {t:'Transitive relation', d:'If x bears it to y and y to z, then x bears it to z.', x:'{(∀x)(∀y)(∀z)[(Axy & Ayz) ⊃ Axz]}', xs:'x is taller than y.'},
-  {t:'Function and functor', d:'A function takes arguments and returns exactly one value, which must be in the UD. A functor is its symbol.', x:'{f(a) = b}', xs:'f(x): the successor of x, a: 2, b: 3. “The successor of 2 is 3.”'},
-  {t:'Complex, open, and closed terms', d:'A functor applied to terms makes a complex term. A term with no variable is closed; one with a variable is open.', x:'closed: {a} {f(a)}     open: {x} {f(x)}'},
-  {t:'Substitution instance', d:'Drop the first quantifier and replace its variable everywhere with the same closed term. A closed complex term like f(a) works too.', x:'{(∀x)Ef(x)}  →  {Ef(a)}', xs:'Every number’s successor is even → the successor of 1 is even.'},
+  {t:'Identity predicate', d:'“=” is a two-place predicate with a fixed meaning: a = b says a and b are one and the same thing.\nWhy we need it: without identity we cannot count, say “someone else,” or say “the only one.”\nWhat to do: use it like any predicate, but never put it in the symbolization key. Its meaning never changes.', x:'{a = b}     {~ a = b}', xs:'a: Mark Twain, b: Samuel Clemens. a = b is true: two names, one person. ~ a = b says they are different people.'},
+  {t:'At least two', d:'Two different variables do not promise two different things: in (∃x)(∃y)(Ax & Ay), x and y can both be the same apple.\nWhat to do: add “x is not y.”', x:'{(∃x)(∃y)[(Ax & Ay) & ~ x = y]}', xs:'Ax: x is an apple. There are at least two apples. Wrong: (∃x)(∃y)(Ax & Ay), which is true with just one apple.'},
+  {t:'Exactly one', d:'“Exactly one” = “at least one” + “no others.”\nWhat to do: say there is an apple x, and that any apple y is that very x.', x:'{(∃x)[Ax & (∀y)(Ay ⊃ y = x)]}', xs:'There is exactly one apple. Wrong: (∃x)Ax, which is still true with five apples.'},
+  {t:'At most one', d:'“At most one” says: any two of them are the same thing.\nWhy it is different from “exactly one”: it makes no claim that there is one. With no apples, it is true.', x:'{(∀x)(∀y)[(Ax & Ay) ⊃ x = y]}', xs:'There is at most one apple. True in a basket with one apple, and true in an empty basket.'},
+  {t:'Exactly two', d:'“Exactly two” = “at least two different ones” + “anything else of that kind is one of those two.”\nTest: if a third apple turns up, the last part fails.', x:'{(∃x)(∃y)([(Ax & Ay) & ~ x = y] & (∀z)[Az ⊃ (z = x ∨ z = y)])}', xs:'There are exactly two apples. Wrong: using (z = x & z = y), which no apple can satisfy when x and y differ.'},
+  {t:'Except', d:'“Everyone except Sam…” says two things: Sam does not, and everyone who is not Sam does.\nWhy both parts: without the first part, Sam might have read it too.', x:'{~ As & (∀y)(~ y = s ⊃ Ay)}', xs:'Ax: x has read it, s: Sam. Everyone except Sam has read it. Wrong: (∀y)(~ y = s ⊃ Ay) alone, which leaves Sam open.'},
+  {t:'The only one', d:'“Kim is the only pilot” says two things: Kim is a pilot, and any pilot is Kim.\nWhy both parts: (∀x)(Px ⊃ x = k) alone is true when there are no pilots at all.', x:'{Pk & (∀x)(Px ⊃ x = k)}', xs:'Px: x is a pilot, k: Kim. Kim is the only pilot.'},
+  {t:'Definite description', d:'“The F is G” claims three things: there is an F, there is only one F, and it is G.\nWhy not a constant: a constant hides the claim that exactly one thing fits, so an argument that depends on it can look invalid.\nIf nothing is F, or several things are, the sentence is false, not meaningless.', x:'{(∃x)[(Fx & (∀y)(Fy ⊃ y = x)) & Gx]}', xs:'Wx: x won, Hx: x is happy. The winner is happy. With two winners, this is false.'},
+  {t:'Reflexive relation', d:'Everything bears the relation to itself.\nTest: is “a R a” true for every single thing in the UD? One exception makes it not reflexive.', x:'{(∀x)Axx}', xs:'UD: people. “x is the same age as y” is reflexive. “x is taller than y” is not: no one is taller than themself.'},
+  {t:'Symmetric relation', d:'If x bears it to y, then y bears it to x.\nTest: look for one pair where it goes only one way.', x:'{(∀x)(∀y)(Axy ⊃ Ayx)}', xs:'“x is a sibling of y” is symmetric. “x is a parent of y” is not: a parent is not their child’s child.'},
+  {t:'Transitive relation', d:'If x bears it to y, and y bears it to z, then x bears it to z.\nTest: look for a chain of two steps that does not give one step.', x:'{(∀x)(∀y)(∀z)[(Axy & Ayz) ⊃ Axz]}', xs:'“x is taller than y” is transitive. “x lives next door to y” is not: next door to next door is two houses away.'},
+  {t:'Function and functor', d:'A function takes one or more arguments and returns exactly one value, and that value must be in the UD. A functor is the symbol for it, like f(x).\nWhy “in the UD”: in the positive integers, “x minus y” is not a function, because 2 − 5 is not a positive integer.', x:'{f(a) = b}', xs:'UD: positive integers. f(x): the successor of x, a: 2, b: 3. “The successor of 2 is 3.”'},
+  {t:'Complex, open, and closed terms', d:'A functor applied to terms makes a complex term, like f(a) or s(x,b).\nA term with no variable is closed: it names something. A term with a variable is open: it names nothing until x is fixed.\nWhy it matters: only closed terms can replace a variable in a substitution instance.', x:'closed: {a} {f(a)}     open: {x} {f(x)}'},
+  {t:'Substitution instance', d:'Drop the first quantifier and replace its variable everywhere with the same closed term.\nA closed complex term like f(a) works too. A variable does not, and replacing the variable two different ways does not.', x:'{(∀x)Ef(x)}  →  {Ef(a)}', xs:'Ex: x is even, f(x): the successor of x, a: 1. “Every number’s successor is even” → “The successor of 1 is even.” Wrong: Ef(y), with a variable.'},
 ];
 
 // ===== Practice =====
@@ -516,7 +594,9 @@ const FUNC=[
 const TERMS=[['f(a)',1,1],['h(x,b)',1,0],['y',0,0],['g(f(a),c)',1,1],['s(x,a)',1,0]];
 const TERM=TERMS.map(([t,cx,cl])=>({q:`What kind of term is {${t}}?`, o:['Simple and closed','Simple and open','Complex and closed','Complex and open'], a:cx*2+(cl?0:1), fixed:true,
   e:`${cx?'It is built from a functor, so it is complex.':'It has no functor, so it is simple.'} ${cl?'It has no variable, so it is closed.':'It contains a variable, so it is open.'}`}));
-const VERBS=[], ORDER=[], PEOPLE=[];
+const VERBS=[];
+const ORDER=[];
+const PEOPLE=[];
 function evalRel(){ return false; }
 function relCounter(){ return null; }
 const ordStr = () => '';
@@ -585,6 +665,46 @@ PARTS.length=0; PARTS.push(
   {n:5, title:'Functions and terms', ids:['func','term'], min:12},
   {n:6, title:'Read it in English', ids:['read'], min:5},
 );
+
+const TEST=[
+  {tag:'count', q:'With Dx: x is a dog, which says “There are at least two dogs”?', o:['{(∃x)(∃y)(Dx & Dy)}','{(∃x)(∃y)[(Dx & Dy) & ~ x = y]}','{(∀x)(∀y)[(Dx & Dy) ⊃ x = y]}','{(∃x)[Dx & (∀y)(Dy ⊃ y = x)]}'], a:1,
+   m:['There is at least one dog.','There are at least two dogs.','There is at most one dog.','There is exactly one dog.'], e:'You need {~ x = y} to make the two dogs different.'},
+  {tag:'count', q:'There are exactly two pears.', key:K.basket,
+   o:['{(∃x)(∃y)([(Px & Py) & ~ x = y] & (∀z)[Pz ⊃ (z = x ∨ z = y)])}','{(∃x)(∃y)[(Px & Py) & ~ x = y]}','{(∀x)(∀y)(∀z)[((Px & Py) & Pz) ⊃ ((x = y ∨ x = z) ∨ y = z)]}','{(∃x)(∃y)[(Px & Py) & (∀z)(Pz ⊃ z = x)]}'], a:0,
+   m:['There are exactly two pears.','There are at least two pears.','There are at most two pears.','There is exactly one pear (y has to be x).'], e:'At least two different pears, and any pear is one of those two.'},
+  {tag:'exc', q:'Everyone except Kim is a pilot.', key:K.family,
+   o:['{~ Pk & (∀x)(~ x = k ⊃ Px)}','{(∀x)(~ x = k ⊃ Px)}','{~ Pk & (∀x)Px}','{(∀x)(Px ⊃ ~ x = k)}'], a:0,
+   m:['Kim is not a pilot, and everyone else is.','Everyone other than Kim is a pilot. Kim might be one too.','Kim is not a pilot, and everyone is a pilot. Impossible.','Kim is not a pilot.'], e:'Kim is not a pilot, and everyone who is not Kim is.'},
+  {tag:'exc', q:'With Sx: x sings and n: Nora, which says “Nora is the only singer”?', o:['{Sn & (∀x)(Sx ⊃ x = n)}','{(∀x)(Sx ⊃ x = n)}','{Sn}','{Sn & (∃x)(Sx & x = n)}'], a:0,
+   m:['Nora sings, and every singer is Nora.','Every singer is Nora, but there might be no singers.','Nora sings.','Nora sings. The second half adds nothing.'], e:'Nora sings, and anyone who sings is Nora.'},
+  {tag:'desc', q:'The pilot is married to Ray.', key:K.family,
+   o:['{(∃x)[(Px & (∀y)(Py ⊃ y = x)) & Mrx]}','{(∃x)(Px & Mrx)}','{(∀x)(Px ⊃ Mrx)}','{Mrp}, where p: the pilot'], a:0,
+   m:['There is exactly one pilot, and Ray is married to that pilot.','Ray is married to some pilot.','Ray is married to every pilot. True if there are none.','Ray is married to a person named p. It hides that there is exactly one pilot.'], e:'Exactly one thing is a pilot, and Ray is married to it.'},
+  {tag:'desc', q:'Suppose there are two winners. What is the truth value of “The winner is happy”?', o:['True, if both are happy','False','Meaningless','Neither true nor false'], a:1, fixed:true, e:'“The winner” claims exactly one winner. With two, the sentence is false.'},
+  {tag:'rel', q:'Which relation (UD: people) is symmetric but not transitive?', o:['x is taller than y','x is a sibling of y','x is the same age as y','x is an ancestor of y'], a:1, fixed:true,
+   w:['Transitive, not symmetric.','','Reflexive, symmetric, and transitive.','Transitive, not symmetric.'], e:'Siblings go both ways, but x and y being siblings does not make x their own sibling.'},
+  {tag:'func', q:'The sum of any two odd numbers is even.', key:K.nums,
+   o:['{(∀x)(∀y)[(Ox & Oy) ⊃ Es(x,y)]}','{(∀x)(∀y)[(Ox & Oy) & Es(x,y)]}','{(∃x)(∃y)[(Ox & Oy) & Es(x,y)]}','{(∀x)(∀y)[Es(x,y) ⊃ (Ox & Oy)]}'], a:0,
+   m:['For any two odd numbers, their sum is even.','Every number is odd, and every sum is even.','Some two odd numbers have an even sum.','Any two numbers with an even sum are both odd.'], e:'Each x and y: if both are odd, their sum is even.'},
+  {tag:'world', q:'A basket holds one apple and two pears. Is {(∃x)(∃y)[(Ax & Ay) & ~ x = y]} true or false?', o:['True','False'], a:1, fixed:true, e:'It says there are at least two apples. There is only one.'},
+  {tag:'term', q:'What kind of term is {f(y)}?', o:['Simple and closed','Simple and open','Complex and closed','Complex and open'], a:3, fixed:true, e:'It is built from a functor, so it is complex. It contains the variable y, so it is open.'},
+];
+// ===== A specific reason for every wrong choice =====
+const SETW=(arr,qStart,w)=>{ const it=arr.find(x=>x.q.startsWith(qStart)); if(!it) throw new Error('not found: '+qStart); it.w=w; };
+SETW(DESC,'Kim has two daughters.',['Uniqueness fails: Kim has two daughters, so “Kim’s only daughter” fits no one. Whether one is a pilot does not matter.','','It is a meaningful sentence. It makes a claim, and the claim is false.','Every sentence here gets a truth-value. This one is false.']);
+SETW(DESC,'Kim has no daughters.',['Existence fails: there is no daughter, so the claim is false.','','It is meaningful. It just makes a false claim.','It still gets a truth-value: false.']);
+SETW(FUNC,'What does {(∀x)Es(x,x)} say',['','{Es(x,x)} is about the sum s(x,x), not about x itself.','x + x is always even, so it is true, not false.','It says every such sum is even, not just some.']);
+SETW(TEST,'Suppose there are two winners.',['With two winners, “the winner” fits no one, so the sentence is false whoever is happy.','','It is meaningful. It makes a false claim.','It gets a truth-value: false.']);
+// kinds of terms: say exactly which half of the choice is wrong
+const TERMW=it=>{ const cx=it.a>=2, cl=it.a%2===0; it.w=it.o.map((_,i)=>{ if(i===it.a) return ''; const r=[]; const icx=i>=2, icl=i%2===0;
+  if(icx!==cx) r.push(cx?'It is built with a functor, so it is complex, not simple.':'It has no functor, so it is simple, not complex.');
+  if(icl!==cl) r.push(cl?'It has no variable, so it is closed, not open.':'It contains a variable, so it is open, not closed.');
+  return r.join(' '); }); };
+TERM.forEach(TERMW); TEST.filter(t=>t.q.startsWith('What kind of term')).forEach(TERMW);
+
+
+const RS = (q1,q2,ord,on=0,n2=0,n3=0)=>({on,q1,n2,q2,n3,ord});
+
 const ALL_IDS=PARTS.flatMap(p=>p.ids);
 const nOf = id => ACTS[id].items.length;
 const doneCount = id => { const m=(progress.sets||{})[id]||{}; return ACTS[id].items.filter((_,k)=>m[k]).length; };
@@ -596,7 +716,10 @@ const app=document.getElementById('app');
 const VIEWS={};
 function render(){ app.innerHTML=VIEWS[view](); }
 function fresh(id,k,item){ return {id,k:+k||0,item:item||ACTS[id].items[+k||0], pickd:null, opt:null, shown:false, b:{on:0,q1:'',n2:0,q2:'',n3:0,ord:''}, result:null, counted:false, ans:[null,null,null], checked:false}; }
-function go(v,arg,k){ view=v; cur = v==='act' ? fresh(arg,k) : null; if(v==='done') cur={id:arg}; render(); window.scrollTo(0,0); }
+function go(v,arg,k,pop){ view=v; cur = v==='act' ? fresh(arg,k) : null; if(cur && ACTS[cur.id] && ACTS[cur.id].kind==='card' && doneMap(cur.id)[cur.k]) cur.shown=true; if(v==='done') cur={id:arg}; render(); window.scrollTo(0,0); if(!pop){ try{ history.pushState({v,arg:arg??null,k:k??null},''); }catch(e){} } }
+// One step back: the phone or browser Back button returns to the previous screen inside the app
+window.addEventListener('popstate', e=>{ const st=e.state; if(!unlocked) return; game=null; if(!st || st.v==='lock' || st.v==='gameEnd' || !VIEWS[st.v]) { go('home',null,null,true); return; } go(st.v, st.arg??undefined, st.k??undefined, true); });
+const prevOf = id => { const i=ALL_IDS.indexOf(id); return i>0 ? ALL_IDS[i-1] : null; };
 const backHome = { toString(){ return game ? `<button class="back" data-act="quit-game">‹ Quit test</button>` : `<button class="back" data-go="home">‹ All sections</button>`; } };
 const fb = (ok,title,body='') => `<div class="fb ${ok?'good':'bad'}" role="status"><strong>${title}</strong>${body}</div>`;
 const keyHTML = key => key ? `<div class="key">${key.map(([s,m])=>s==='UD'?`<span>UD: ${esc(m)}</span>`:`<span><b>${esc(s)}</b>: ${esc(m)}</span>`).join('')}</div>` : '';
@@ -606,7 +729,7 @@ function head(){
   return `<div class="ex-head"><h2>${esc(A.name)}</h2>${A.kind==='card'?'':`<span class="score">${sc(cur.id)}</span>`}</div><p class="muted exnum">${A.kind==='card'?'Card':'Exercise'} ${cur.k+1} of ${nOf(cur.id)}</p>`;
 }
 const isLast = () => cur.k+1>=nOf(cur.id);
-const nextBtn = (label,ready=true) => `<div class="next"><button class="btn" data-act="next" ${!game&&!ready?'disabled':''}>${game ? (game.answered ? (game.i+1<game.items.length?'Next question':'See my score') : 'Skip') : (isLast()?'Finish':label)}</button></div>`;
+const nextBtn = (label,ready=true) => `<div class="next">${!game&&(cur.k>0||prevOf(cur.id))?`<button class="btn ghost prev" data-act="prev">‹ Previous</button>`:''}<button class="btn" data-act="next" ${!game&&!ready?'disabled':''}>${game ? (game.answered ? (game.i+1<game.items.length?'Next question':'See my score') : 'Skip') : (isLast()?'Finish':label)}</button></div>`;
 
 // ===== Decorative symbol layer =====
 function symLayer(n, seed){
@@ -633,8 +756,8 @@ VIEWS.home = () => {
   <header class="mast">
     ${symLayer(16, 7)}
     <p class="kicker">PHIL 270 · Symbolic Logic</p>
-    <h1>Class 14<span class="f" aria-hidden="true">∀=</span></h1>
-    <p class="mast-tag">Identity, counting, definite descriptions, relations, and functions. Everyone gets the same exercises, so we can work through them together.</p>
+    <h1>Class 14<span class="f" aria-hidden="true">=</span></h1>
+    <p class="mast-tag">Identity and counting, except and only, definite descriptions, relations, and functions. Everyone gets the same exercises, so we can work through them together.</p>
     <div class="prog"><div class="prog-row"><span>${totD===totN?'All done! 🎉':'Your progress'}</span><span>${totD} of ${totN}</span></div><div class="prog-bar" role="progressbar" aria-label="Cards and exercises done" aria-valuemin="0" aria-valuemax="${totN}" aria-valuenow="${totD}"><i style="width:${Math.round(totD/totN*100)}%"></i></div></div>
     <button class="candy-cta" data-go="gameStart"><span class="candy-ico test-ico" aria-hidden="true">✓</span><span><b>Test your knowledge</b><small>10 questions on everything from today. Do it at the end.${progress.best!=null?` Your best so far: ${progress.best} of 10.`:''}</small></span><span class="go-light">Start</span></button>
   </header>
@@ -643,7 +766,7 @@ VIEWS.home = () => {
     <ol>${PARTS.map(p=>`<li><b>${p.title}</b> · about ${p.min} min</li>`).join('')}<li><b>Test your knowledge</b> · about 10 min</li></ol>
   </section>
   <ol class="levels">${PARTS.map(part).join('')}</ol>
-  <p class="reset-row"><a class="reset" href="sheets/class-13-practice-sheet.pdf" target="_blank" rel="noopener">Printable practice sheet (PDF)</a> · <button class="reset" data-act="reset">Start over</button></p>`;
+  <p class="reset-row">${typeof SHEET!=='undefined'?`<a class="reset" href="${SHEET}" target="_blank" rel="noopener">Printable practice sheet (PDF)</a> · `:''}<button class="reset" data-act="reset">Start over</button></p>`;
 };
 
 // ===== Activity views =====
@@ -653,20 +776,60 @@ function mcBody(it){
   const L='ABCD';
   const btns=e.opt.map((oi,pos)=>{ let c='choice'; const after=e.pickd!==null;
     if(after){ if(oi===it.a) c+=' right'; else if(oi===e.pickd) c+=' wrong'; }
-    const why = !after ? '' : (it.m && it.m[oi]) ? `<span class="why means">${oi===it.a?'✓':'✗'} Means: ${fmt(it.m[oi])}</span>` : (it.w && it.w[oi] && oi!==it.a) ? `<span class="why">${fmt(it.w[oi])}</span>` : '';
+    let why='';
+    if(after){
+      const meanOf = i => (it.m && it.m[i]) || (it.sl && onlyFormula(it.o[i]) ? slEnglish(onlyFormula(it.o[i]), it.sl) : null);
+      const mean = meanOf(oi);
+      if(mean) why+=`<span class="why means">${oi===it.a?'✓':'✗'} Means: ${fmt(mean)}</span>`;
+      if(oi!==it.a){
+        // every wrong choice explains itself, whichever choice was picked
+        let wy = it.w && it.w[oi];
+        if(!wy){ const right=meanOf(it.a); wy = (mean && right) ? `It says something different. The correct choice says: ${right}` : (it.e || ''); }
+        if(wy) why+=`<span class="why wrongwhy">${mean?'':'✗ '}Why it’s wrong: ${fmt(wy)}</span>`;
+      }
+    }
     return `<button class="${c}" data-mc="${oi}" ${after?'disabled':''}><b>${L[pos]}</b>${fmt(it.o[oi])}${why}</button>`; }).join('');
   const ok=e.pickd===it.a;
-  return `<p class="prop">${fmt(it.q)}</p>${keyHTML(it.key)}
+  return `<p class="prop">${fmt(it.q).replace(/\n/g,'<br>')}</p>${it.proof?proofHTML(it.proof):''}${keyHTML(it.key)}
   <section class="step"><div class="choices one">${btns}</div>
     ${e.pickd!==null?fb(ok, ok?'Correct.':`The answer is ${L[e.opt.indexOf(it.a)]}.`, ' '+fmt(it.e)):''}</section>`;
+}
+function ttBody(it){
+  const e=cur, fs=it.fs||[it.f], trees=fs.map(slParse);
+  const atoms=[...new Set(trees.flatMap(t=>slAtoms(t)))].sort(), n=atoms.length, R=1<<n;
+  const rows=[...Array(R).keys()].map(r=>Object.fromEntries(atoms.map((a,j)=>[a,!((r>>(n-1-j))&1)])));
+  const truth=trees.map(t=>rows.map(v=>slEval(t,v)));
+  if(!e.tv) e.tv={};
+  const TF=b=>b?'T':'F';
+  const head=`<tr>${atoms.map(a=>`<th>${a}</th>`).join('')}<th class="sep"></th>${fs.map((f,c)=>`<th class="fc">${F(f)}${it.labels?`<small>${esc(it.labels[c])}</small>`:''}</th>`).join('')}</tr>`;
+  const body=rows.map((v,r)=>`<tr>${atoms.map(a=>`<td>${TF(v[a])}</td>`).join('')}<td class="sep"></td>${fs.map((f,c)=>{ const k=c+':'+r, val=e.tv[k]; let cls='cell'; if(e.checked){ cls+= val===TF(truth[c][r])?' right':' wrong'; } return `<td><button class="${cls}" data-tv="${k}" ${e.checked?'disabled':''} aria-label="Row ${r+1}, ${esc(f)}">${e.checked&&val!==TF(truth[c][r])?`${val||'?'}→${TF(truth[c][r])}`:(val||'?')}</button></td>`; }).join('')}</tr>`).join('');
+  const ready=fs.every((_,c)=>rows.every((_,r)=>e.tv[c+':'+r]));
+  const rowTxt=v=>atoms.map(a=>`${a} = ${TF(v[a])}`).join(', ');
+  let sum='';
+  if(e.checked){
+    const mode=it.mode||'single', col=truth[0];
+    if(mode==='single') sum = col.every(x=>x)?'True on every row, so it is truth-functionally true.':col.every(x=>!x)?'False on every row, so it is truth-functionally false.':`True on some rows and false on others, so it is truth-functionally indeterminate. For example, it is true when ${rowTxt(rows[col.indexOf(true)])}, and false when ${rowTxt(rows[col.indexOf(false)])}.`;
+    if(mode==='equiv'){ const d=rows.findIndex((_,r)=>truth[0][r]!==truth[1][r]); sum = d<0?'The two columns match on every row, so the sentences are truth-functionally equivalent.':`They differ when ${rowTxt(rows[d])}: the first is ${TF(truth[0][d])} and the second is ${TF(truth[1][d])}. So they are not equivalent.`; }
+    if(mode==='set'){ const g=rows.findIndex((_,r)=>truth.every(c=>c[r])); sum = g>=0?`All of them are true when ${rowTxt(rows[g])}, so the set is truth-functionally consistent.`:'No row makes them all true, so the set is truth-functionally inconsistent.'; }
+    if(mode==='arg'){ const last=truth.length-1, g=rows.findIndex((_,r)=>truth.slice(0,last).every(c=>c[r]) && !truth[last][r]); sum = g<0?'No row makes every premise true and the conclusion false, so the argument is truth-functionally valid.':`When ${rowTxt(rows[g])}, every premise is true and the conclusion is false. So the argument is invalid.`; }
+  }
+  const ok=e.checked && fs.every((_,c)=>rows.every((_,r)=>e.tv[c+':'+r]===TF(truth[c][r])));
+  const wrongRows=[]; if(e.checked) fs.forEach((f,c)=>rows.forEach((v,r)=>{ if(e.tv[c+':'+r]!==TF(truth[c][r])) wrongRows.push(`<li><b>Row ${rowTxt(v)}${fs.length>1?` · ${esc(f)}`:''}:</b> ${esc(slWhy(trees[c],v))}</li>`); }));
+  const whyList = wrongRows.length?`<h3 class="means-h">Why those rows</h3><ul class="means-list">${wrongRows.join('')}</ul>`:'';
+  return `<p class="prop">${fmt(it.q||(fs.length>1?(it.mode==='arg'?'Fill in each column. Is there a row where every premise is T and the conclusion is F?':it.mode==='set'?'Fill in each column. Is there a row where every sentence is T?':'Fill in both columns. Do they ever differ?'):'Fill in the column under the main connective.'))}</p>${keyHTML(it.key)}${it.eng?`<p class="muted">In English: ${esc(it.eng)}</p>`:''}
+  <section class="step"><p class="hint">Tap each box to switch between T and F.</p>
+    <div class="ttwrap"><table class="tt">${head}${body}</table></div>
+    <div class="actions"><button class="btn" data-act="check-tt" ${!ready||e.checked?'disabled':''}>Check</button></div>
+    ${e.checked?fb(ok, ok?'Correct.':'Not quite. The corrections are shown in the table.', ' '+esc(sum)+(it.e?' '+fmt(it.e):'')):''}${whyList}</section>`;
 }
 const BODY={
   card(it){
     const A=ACTS[cur.id];
     if(!cur.shown) return `<div class="fcard hidden-def"><p class="deck">${esc(A.deck)}</p><h3>${esc(it.t)}</h3><p class="muted">What does it mean? Say it in your own words, then reveal.</p><div class="actions"><button class="btn" data-act="reveal">Show the definition</button></div></div>`;
-    return `<div class="fcard"><p class="deck">${esc(A.deck)}</p><h3>${esc(it.t)}</h3><p class="def">${fmt(it.d)}</p>${it.x?`<div class="ex">${fmt(it.x)}${it.xs?`<small>${esc(it.xs)}</small>`:''}</div>`:''}</div>`;
+    return `<div class="fcard"><p class="deck">${esc(A.deck)}</p><h3>${esc(it.t)}</h3><p class="def">${fmt(it.d).replace(/\n/g,'<br>')}</p>${it.x?`<div class="ex">${fmt(it.x)}${it.xs?`<small>${esc(it.xs)}</small>`:''}</div>`:''}</div>`;
   },
   mc: mcBody,
+  tt: ttBody,
   world(it){
     const e=cur, FR={A:'🍎',P:'🍐'};
     const fruits=it.b.map(s=>`<span class="fruit" role="img" aria-label="${s[0]==='A'?'apple':'pear'}${s[1]?' (rotten)':''}">${FR[s[0]]}${s[1]?'<span class="worm">🪱</span>':''}</span>`).join('');
@@ -715,13 +878,16 @@ const BODY={
       <div class="actions"><button class="btn" data-act="check-order" ${!ready||e.result?.ok?'disabled':''}>Check</button></div>${res}</section>`;
   },
   move(it){
-    const e=cur;
-    const opts=[['∀','(∀x)'],['∃','(∃x)'],['none','It can’t be moved']].map(([v,l])=>{ let c='choice'; if(e.pickd!==null){ if(v===it.ans) c+=' right'; else if(v===e.pickd) c+=' wrong'; } return `<button class="${c}" data-move="${v}" ${e.pickd!==null?'disabled':''}>${v==='none'?l:F(l)}</button>`; }).join('');
-    return `<div class="formula">${esc(it.s).replace(/ /g,'&nbsp;')}</div>
+    const e=cur, done=e.pickd!==null;
+    const opts=[['∀','(∀x)'],['∃','(∃x)'],['none','It can’t be moved']].map(([v,l])=>{ let c='choice'; if(done){ if(v===it.ans) c+=' right'; else if(v===e.pickd) c+=' wrong'; } return `<button class="${c}" data-move="${v}" ${done?'disabled':''}>${v==='none'?l:F(l)}</button>`; }).join('');
+    const means = done && it.say ? `<ul class="means-list">${[['∀','(∀x)'],['∃','(∃x)'],['none','It can’t be moved']].map(([v,l])=>{ const r=it[v]; return `<li class="${v===it.ans?'ok':'no'}"><b>${v===it.ans?'✓':'✗'}</b> ${v==='none'?`<b>${esc(l)}:</b> ${esc(it.none)}`:`${F(r[0])}: ${esc(r[1])}`}</li>`; }).join('')}</ul>` : '';
+    return `${it.key?`<div class="key"><span>${esc(it.key)}</span></div>`:''}<div class="formula">${esc(it.s).replace(/ /g,'&nbsp;')}</div>
+    ${it.say?`<p class="muted">In English: “${esc(it.say)}”</p>`:''}
     <section class="step"><h3>Extend the quantifier over the whole sentence</h3>
       <p class="hint">Which quantifier does the equivalent sentence start with?</p>
       <div class="choices three">${opts}</div>
-      ${e.pickd!==null?fb(e.pickd===it.ans, e.pickd===it.ans?'Correct.':(it.ans==='none'?'It can’t be moved.':`It becomes ${F('('+it.ans+'x)')}.`), (it.res?` Equivalent sentence: ${F(it.res)}. `:' ')+esc(it.why)):''}
+      ${done?fb(e.pickd===it.ans, e.pickd===it.ans?'Correct.':(it.ans==='none'?'It can’t be moved.':`It becomes ${F('('+it.ans+'x)')}.`), (it.res?` Equivalent sentence: ${F(it.res)}. `:' ')+esc(it.why)):''}
+      ${means?`<h3 class="means-h">What each choice would say</h3>${means}`:''}
     </section>`;
   },
 };
@@ -739,33 +905,11 @@ VIEWS.done = () => {
   <div class="game-hero"><div class="big-candy" aria-hidden="true">✓</div>
     <h2>That’s all ${n}</h2>
     <p>You finished <b>${esc(A.name)}</b>.</p></div>
-  <div class="actions center">${nextBtnH}<button class="btn ghost" data-go="home">Back to all sections</button></div>`;
+  <div class="actions center"><button class="btn ghost" data-go="act" data-arg="${cur.id}" data-k="${n-1}">‹ Back</button>${nextBtnH}<button class="btn ghost" data-go="home">Back to all sections</button></div>`;
 };
 
 // ===== Test your knowledge (10 questions at the end) =====
-const TEST=[
-  {tag:'count', q:'With Dx: x is a dog, which says “There are at least two dogs”?', o:['{(∃x)(∃y)(Dx & Dy)}','{(∃x)(∃y)[(Dx & Dy) & ~ x = y]}','{(∀x)(∀y)[(Dx & Dy) ⊃ x = y]}','{(∃x)[Dx & (∀y)(Dy ⊃ y = x)]}'], a:1,
-   m:['There is at least one dog.','There are at least two dogs.','There is at most one dog.','There is exactly one dog.'], e:'You need {~ x = y} to make the two dogs different.'},
-  {tag:'count', q:'There are exactly two pears.', key:K.basket,
-   o:['{(∃x)(∃y)([(Px & Py) & ~ x = y] & (∀z)[Pz ⊃ (z = x ∨ z = y)])}','{(∃x)(∃y)[(Px & Py) & ~ x = y]}','{(∀x)(∀y)(∀z)[((Px & Py) & Pz) ⊃ ((x = y ∨ x = z) ∨ y = z)]}','{(∃x)(∃y)[(Px & Py) & (∀z)(Pz ⊃ z = x)]}'], a:0,
-   m:['There are exactly two pears.','There are at least two pears.','There are at most two pears.','There is exactly one pear (y has to be x).'], e:'At least two different pears, and any pear is one of those two.'},
-  {tag:'exc', q:'Everyone except Kim is a pilot.', key:K.family,
-   o:['{~ Pk & (∀x)(~ x = k ⊃ Px)}','{(∀x)(~ x = k ⊃ Px)}','{~ Pk & (∀x)Px}','{(∀x)(Px ⊃ ~ x = k)}'], a:0,
-   m:['Kim is not a pilot, and everyone else is.','Everyone other than Kim is a pilot. Kim might be one too.','Kim is not a pilot, and everyone is a pilot. Impossible.','Kim is not a pilot.'], e:'Kim is not a pilot, and everyone who is not Kim is.'},
-  {tag:'exc', q:'With Sx: x sings and n: Nora, which says “Nora is the only singer”?', o:['{Sn & (∀x)(Sx ⊃ x = n)}','{(∀x)(Sx ⊃ x = n)}','{Sn}','{Sn & (∃x)(Sx & x = n)}'], a:0,
-   m:['Nora sings, and every singer is Nora.','Every singer is Nora, but there might be no singers.','Nora sings.','Nora sings. The second half adds nothing.'], e:'Nora sings, and anyone who sings is Nora.'},
-  {tag:'desc', q:'The pilot is married to Ray.', key:K.family,
-   o:['{(∃x)[(Px & (∀y)(Py ⊃ y = x)) & Mrx]}','{(∃x)(Px & Mrx)}','{(∀x)(Px ⊃ Mrx)}','{Mrp}, where p: the pilot'], a:0,
-   m:['There is exactly one pilot, and Ray is married to that pilot.','Ray is married to some pilot.','Ray is married to every pilot. True if there are none.','Ray is married to a person named p. It hides that there is exactly one pilot.'], e:'Exactly one thing is a pilot, and Ray is married to it.'},
-  {tag:'desc', q:'Suppose there are two winners. What is the truth value of “The winner is happy”?', o:['True, if both are happy','False','Meaningless','Neither true nor false'], a:1, fixed:true, e:'“The winner” claims exactly one winner. With two, the sentence is false.'},
-  {tag:'rel', q:'Which relation (UD: people) is symmetric but not transitive?', o:['x is taller than y','x is a sibling of y','x is the same age as y','x is an ancestor of y'], a:1, fixed:true,
-   w:['Transitive, not symmetric.','','Reflexive, symmetric, and transitive.','Transitive, not symmetric.'], e:'Siblings go both ways, but x and y being siblings does not make x their own sibling.'},
-  {tag:'func', q:'The sum of any two odd numbers is even.', key:K.nums,
-   o:['{(∀x)(∀y)[(Ox & Oy) ⊃ Es(x,y)]}','{(∀x)(∀y)[(Ox & Oy) & Es(x,y)]}','{(∃x)(∃y)[(Ox & Oy) & Es(x,y)]}','{(∀x)(∀y)[Es(x,y) ⊃ (Ox & Oy)]}'], a:0,
-   m:['For any two odd numbers, their sum is even.','Every number is odd, and every sum is even.','Some two odd numbers have an even sum.','Any two numbers with an even sum are both odd.'], e:'Each x and y: if both are odd, their sum is even.'},
-  {tag:'world', q:'A basket holds one apple and two pears. Is {(∃x)(∃y)[(Ax & Ay) & ~ x = y]} true or false?', o:['True','False'], a:1, fixed:true, e:'It says there are at least two apples. There is only one.'},
-  {tag:'term', q:'What kind of term is {f(y)}?', o:['Simple and closed','Simple and open','Complex and closed','Complex and open'], a:3, fixed:true, e:'It is built from a functor, so it is complex. It contains the variable y, so it is open.'},
-];
+
 let game=null, lastGame=null;
 function gameRecord(ok){
   if(!game||game.answered) return;
@@ -779,6 +923,7 @@ function gameBar(title){
   <div class="ex-head"><h2>${title}</h2></div>`;
 }
 function startGame(){
+  try{ history.pushState({v:'gameStart'},''); }catch(e){}
   game={items:TEST.map((_,i)=>i), i:-1, right:0, answered:false, hist:[]};
   gameNext();
 }
@@ -797,7 +942,7 @@ function finishGame(){
 VIEWS.gameStart = () => `${backHome}
   <div class="game-hero"><div class="big-candy test-big" aria-hidden="true">✓</div>
     <h2>Test your knowledge</h2>
-    <p>Ten questions on everything from today: counting with identity, except and only, definite descriptions, relations, and functions.</p>
+    <p>Ten questions on everything from today: identity and counting, except and only, definite descriptions, relations, and functions.</p>
   </div>
   <section class="step">
     <p class="hint">Only your first answer to each question counts. You can skip a question, but a skip counts as a miss. You’ll see an explanation after each answer and your score at the end.</p>
@@ -836,6 +981,8 @@ app.addEventListener('click', ev=>{
   if((v=d('mc'))!==undefined && cur.pickd===null){ cur.pickd=+v; tally(cur.pickd===it.a); render(); return; }
   if((v=d('tf'))!==undefined && cur.pickd===null){ cur.pickd = v==='true'; tally(cur.pickd===it.ans); render(); return; }
   if((v=d('move'))!==undefined && cur.pickd===null){ cur.pickd=v; tally(v===it.ans); render(); return; }
+  if((v=d('tv'))!==undefined && !cur.checked){ const x=cur.tv[v]; cur.tv[v]= x==='T'?'F':'T'; render(); return; }
+  if(act==='check-tt' && !cur.checked){ cur.checked=true; const it2=cur.item, fs=it2.fs||[it2.f], tr=fs.map(slParse), at=[...new Set(tr.flatMap(t=>slAtoms(t)))].sort(), n=at.length; let ok=true; for(let r=0;r<(1<<n);r++){ const vv=Object.fromEntries(at.map((a,j)=>[a,!((r>>(n-1-j))&1)])); tr.forEach((t,c)=>{ if(cur.tv[c+':'+r]!==(slEval(t,vv)?'T':'F')) ok=false; }); } tally(ok); render(); return; }
   if((v=d('rel'))!==undefined && !cur.checked){ const [i,val]=v.split(':').map(Number); cur.ans[i]=val; render(); return; }
   if(act==='check-rel' && !cur.checked){ cur.checked=true; tally(cur.ans.every((a,i)=>a===it.ans[i])); render(); return; }
   if(act==='check-order'){
@@ -843,6 +990,7 @@ app.addEventListener('click', ev=>{
     if(!cur.counted){ cur.counted=true; tally(!c); }
     render(); return;
   }
+  if(act==='prev'){ if(cur.k>0) go('act',cur.id,cur.k-1); else { const p=prevOf(cur.id); if(p) go('act',p,nOf(p)-1); } return; }
   if(act==='next'){ if(cur.k+1<nOf(cur.id)) go('act',cur.id,cur.k+1); else go('done',cur.id); return; }
 });
 app.addEventListener('change', ev=>{
@@ -856,7 +1004,7 @@ let unlocked=false; try{ unlocked = localStorage.getItem('class14-unlocked')==='
 let codeError=false;
 function cuteBg(n=22){
   let x=29; const rnd=()=>((x=(x*16807)%2147483647)/2147483647);
-  const SY=['∀','∃','⊃','=','~','&','∨'], COL=['var(--candy)','#3BA776','var(--p1)','var(--p2)','var(--p4)'];
+  const SY=['∀','∃','⊃','=','~','&','∨'], COL=['var(--candy)','var(--acc2)','var(--p1)','var(--p2)','var(--p4)'];
   let out='';
   for(let i=0;i<n;i++){
     const l=(rnd()*96).toFixed(1), t=(rnd()*94).toFixed(1), r=(rnd()*40-20).toFixed(0), d=(2.6+rnd()*3).toFixed(1);
@@ -867,9 +1015,9 @@ function cuteBg(n=22){
 VIEWS.lock = () => `
   ${cuteBg()}
   <div class="lock">
-    <div class="tile" aria-hidden="true">∀=</div>
+    <div class="tile" aria-hidden="true">=</div>
     <h1>Class 14</h1>
-    <p class="sub">Identity, descriptions, and functions.</p>
+    <p class="sub">Identity, Descriptions, and Functions.</p>
     <form id="code-form" class="code-form" novalidate>
       <label for="class-code" class="hint">Enter the class code your teacher gave you</label>
       <input type="text" id="class-code" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="30" placeholder="• • • • • • •" ${codeError?'aria-invalid="true" aria-describedby="code-err"':''}>
@@ -886,6 +1034,7 @@ app.addEventListener('submit', ev=>{
   } else { codeError=true; render(); document.getElementById('class-code')?.focus(); }
 });
 if(!unlocked) view='lock';
+try{ history.replaceState({v: unlocked?'home':'lock'},''); }catch(e){}
 render();
 if(!unlocked) document.getElementById('class-code')?.focus();
 </script>
